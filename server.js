@@ -210,9 +210,9 @@ app.get("/bfhl", (_req, res) => {
     res.json({
         operation_code: 1,
         name: "Vanja Lahari",
-        user_id: "Vanja_Lahari_01042003",
-        email: "vanjalahari04@gmail.com",
-        roll_number: "22BCE5343"
+        user_id: "Vanja_Lahari",
+        email: "laharivanja@gmail.com",
+        roll_number: "22BCE9796"
     });
 });
 

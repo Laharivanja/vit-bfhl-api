@@ -1,0 +1,19 @@
+{
+    "name": "vit-bfhl-api",
+    "version": "1.0.0",
+    "description": "VIT Full Stack – BFHL API",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "node --watch server.js"
+    },
+    "keywords": [],
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.19.2",
+        "morgan": "^1.10.0"
+    }
+}

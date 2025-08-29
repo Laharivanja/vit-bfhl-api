@@ -4,12 +4,13 @@ import morgan from "morgan";
 
 const app = express();
 
-// ---------- EDIT THESE ----------
-const FULL_NAME = "vanja_lahari";         // lowercase with underscore
-const DOB_DDMMYYYY = "29102004";         // ddmmyyyy
+// ---------- HARD-CODED USER DETAILS ----------
+const FULL_NAME = "vanja_lahari";        // lowercase with underscore
+const DOB_DDMMYYYY = "29102004";        // ddmmyyyy
 const EMAIL = "laharivanja@gmail.com";
 const ROLL_NUMBER = "22BCE9796";
-// -------------------------------
+const PORT = 3000;                       // can change if needed
+// --------------------------------------------
 
 // Middleware
 app.use(cors());
@@ -25,17 +26,10 @@ app.get("/", (_req, res) => {
 });
 
 // ----------------- Helpers -----------------
-
-// Check if string contains only digits
 const isDigitsOnly = (s) => typeof s === "string" && /^[0-9]+$/.test(s);
-
-// Check if string contains only alphabets
 const isAlphasOnly = (s) => typeof s === "string" && /^[A-Za-z]+$/.test(s);
-
-// Check if string is special character / other
 const isSpecial = (s) => typeof s === "string" && !(isDigitsOnly(s) || isAlphasOnly(s));
 
-// Build alternating caps from all letters reversed
 const buildAlternatingCapsReversed = (tokens) => {
     const letters = [];
     for (const t of tokens) {
@@ -88,7 +82,9 @@ app.post("/bfhl", (req, res) => {
             }
         }
 
-        const concat_string = buildAlternatingCapsReversed(data.map((x) => (typeof x === "string" ? x : String(x))));
+        const concat_string = buildAlternatingCapsReversed(
+            data.map((x) => (typeof x === "string" ? x : String(x)))
+        );
 
         return res.status(200).json({
             is_success: true,
@@ -115,7 +111,6 @@ app.post("/bfhl", (req, res) => {
 });
 
 // ----------------- Start Server -----------------
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`BFHL API listening on port ${PORT}`);
 });

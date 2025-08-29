@@ -5,10 +5,10 @@ import morgan from "morgan";
 const app = express();
 
 // ---------- EDIT THESE (your identity details) ----------
-const FULL_NAME = "john_doe";         // lowercase full name with underscore
-const DOB_DDMMYYYY = "17091999";      // ddmmyyyy
-const EMAIL = "john@xyz.com";
-const ROLL_NUMBER = "ABCD123";
+const FULL_NAME = "Vanja_Lahari";         // lowercase full name with underscore
+const DOB_DDMMYYYY = "29102004";      // ddmmyyyy
+const EMAIL = "laharivanja@gmail.com";
+const ROLL_NUMBER = "22BCE9796";
 // --------------------------------------------------------
 
 // Middleware
@@ -17,12 +17,42 @@ app.use(express.json({ limit: "1mb" }));
 app.use(morgan("dev"));
 
 // Health check / root
+// Health-check route (keep this!)
 app.get("/", (_req, res) => {
     res.status(200).json({
         status: "ok",
-        message: "VIT BFHL API running. Use POST /bfhl."
+        message: "VIT BFHL API running. Use GET/POST /bfhl."
     });
 });
+
+// GET /bfhl
+app.get("/bfhl", (_req, res) => {
+    res.json({ operation_code: 1 });
+});
+
+// POST /bfhl
+app.post("/bfhl", (req, res) => {
+    const data = req.body.data || [];
+
+    const numbers = data.filter((item) => !isNaN(item));
+    const alphabets = data.filter((item) => isNaN(item));
+
+    let highestAlphabet = "";
+    if (alphabets.length > 0) {
+        highestAlphabet = [alphabets.sort().reverse()[0]];
+    }
+
+    res.json({
+        is_success: true,
+        user_id: "Vanja_Lahari_01042003",
+        email: "vanjalahari04@gmail.com",
+        roll_number: "22BCE5343",
+        numbers,
+        alphabets,
+        highest_alphabet: highestAlphabet,
+    });
+});
+
 
 /**
  * Helpers

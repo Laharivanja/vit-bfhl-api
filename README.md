@@ -37,7 +37,7 @@ vit-bfhl-api/
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/vit-bfhl-api.git
+git clone https://github.com/Laharivanja/vit-bfhl-api.git
 cd vit-bfhl-api
 ```
 
@@ -98,7 +98,7 @@ curl -X POST http://localhost:3000/bfhl \
 ---
 
 ## 👨‍💻 Author
-- **Your Name** ([@yourgithub](https://github.com/yourgithub))  
+- **Your Name** ([@Laharivanja](https://github.com/Laharivanja))  
 
 ---
 

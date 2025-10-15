@@ -9,6 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+
 // ✅ User details from .env (with fallbacks)
 const fullName = (process.env.FULL_NAME || "vanja_lahari").toLowerCase();
 const dob = process.env.DOB || "29102004";
